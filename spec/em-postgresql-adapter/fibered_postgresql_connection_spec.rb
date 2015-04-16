@@ -104,7 +104,8 @@ describe EM::DB::FiberedPostgresConnection, 'integration with active_record insi
         ActiveRecord::Base.connection.execute('SELECT 42')
         done
       }
-    }.to raise_error(ActiveRecord::StatementInvalid, /FiberError/)
+    }.to raise_error(FiberError)
+    # }.to raise_error(ActiveRecord::StatementInvalid, /FiberError/)
   end
 
 end
